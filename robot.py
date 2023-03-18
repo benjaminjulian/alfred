@@ -248,7 +248,7 @@ The line separation is crucial. You do not express yourself in natural language.
 def get_first_prompts():
     return [
                 {'role': 'system', 'content': get_system_command()},
-                {'role': 'system', 'content': 'This is the beginning of the discussion.'},
+                {'role': 'assistant', 'content': 'This is the beginning of the discussion.'},
                 {'role': 'assistant', 'content': '''CMD_BEGIN
 CMD_READSENSORS
 CMD_END'''}
@@ -274,7 +274,7 @@ def summarizeMessages(messages):
     i = len(intro)
     chat_length = len(messages)
     # summarize the first third of them
-    to_summarize = messages[i:i + int(chat_length / 2)]
+    to_summarize = messages[1:i + int(chat_length / 2)]
 
     to_summarize.append({'role': 'user', 'content': 'Summarize the preceding discussion.'})
 
